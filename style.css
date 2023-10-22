@@ -1,0 +1,278 @@
+/* RESET */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* END RESET */
+
+
+body {
+    box-sizing: border-box;
+    min-height: 200vh;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color:  rgb(25, 25, 26);
+    --blue : rgb(65, 170, 255);
+    --dark :rgb(25, 25, 26);
+    color : white;
+}
+
+nav {
+    font-size : 20px;
+    z-index : 10;
+    width : 100%;
+    height: 80px;
+    position: fixed;
+    background-color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding : 25px;
+    gap : 20px;
+}
+
+.hamburger {
+    display: none;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    gap : 10px;
+    align-items: center;
+}
+
+
+.nav-content > ul {
+    display: flex;
+    list-style: none;
+    gap : 50px;
+}
+
+.button-header {
+    height: 40px;
+    display: flex;
+    gap : 20px;
+}
+
+.inscription , .connexion:hover{
+    outline: none;
+    border : none;
+    cursor: pointer;
+    background-color: var(--blue);
+    border : 1px solid var(--blue);
+    color: white;
+    padding: 10px 30px;
+    border-radius: 100px;
+}
+
+.connexion , .inscription:hover {
+    border : 1px solid var(--blue);
+    cursor: pointer;
+    background-color: white;
+    color: var(--blue);
+    padding: 10px 30px;
+    border-radius: 100px;
+}
+
+.container{
+    margin : 150px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap : 100px;
+    
+}
+
+ .container > h2 {
+    margin-top: 50px;
+    font-size: 32px;
+    color: var(--blue);
+    font-weight: 400;
+}
+
+
+main {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    width: 100%;
+    grid-column: 1;
+    background-color: var(--dark) ;
+}
+
+.tweet img {
+    width : 40px;
+    height: 40px;
+    border-radius: 100px;
+}
+
+main .tweet {
+    padding: 30px;
+    border : 1px solid white;
+}
+
+main .tweet .header-tweet {
+    display: flex;
+    align-items: center;
+    gap : 20px;
+}
+
+.header-tweet .pseudo > h3 {
+    margin-bottom: 8px;
+}
+
+.pseudo > span {
+    font-size: 14px;
+    color : rgb(118, 117, 117);
+}
+
+.tweet .text-tweet {
+    margin-top: 20px;
+    line-height: 20px;
+}
+
+.tweet:nth-child(3n){
+    grid-column: 1/3;
+}
+
+aside {
+    display: grid;
+    grid-template-rows: 50px;
+    align-items: center;
+    position: sticky;
+    top : 120px;
+    height: 550px;
+    width : 100%;
+    padding: 20px;
+    grid-column: 2;
+    background-color: #2d3138;
+    border-radius: 30px;
+}
+
+aside > h3 {
+    grid-row: 1;
+    font-size : 24px;
+    font-weight: bold;
+}
+
+aside > ul >li {
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: 400;
+    border-top : 1px solid white;
+}
+
+@media only screen and (max-width : 950px) {
+    
+    .hamburger {
+        display: block;
+        cursor : pointer;
+    }
+    .hamburger .line {
+        width : 30px;
+        height: 3px;
+        background: white;
+        margin: 6px 0;
+    }
+    .nav-content{
+        height: 0;
+        display: block;
+        position: absolute;
+        top : 100px;
+        left : 0;
+        right: 0;
+        width: 100%;
+        background-color: #2d3138;
+        transition: 0.2s;
+        overflow: hidden;
+    }
+    .nav-content.active {
+        height: 450px;
+    }
+    .nav-content ul {
+        display: block;
+        width: fit-content;
+        margin: 80px auto 0 auto;
+        text-align: center;
+        transition: 0.5s;
+        opacity: 0;
+    }
+    .nav-content.active ul {
+        opacity: 1;
+    }
+    .nav-content ul li {
+        margin-top: 20px;
+    }
+    .nav-content .button-header {
+        margin-top: 40px;
+        justify-content: center;
+        opacity: 0;
+    }
+    .nav-content.active .button-header {
+        opacity: 1;
+    }
+}
+   
+@media screen and (max-width : 1100px) {
+    .container {
+        margin: 100px;
+        grid-template-columns:  1fr;
+        gap : 150px;
+    }
+    aside {
+        order : 1;
+        width: 100%;
+        grid-column: 1;
+        position: relative;
+    }
+    main {
+        order : 2; 
+    }
+    .tweet{
+        grid-column: 1/3 ;
+    }
+}
